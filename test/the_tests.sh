@@ -5,7 +5,7 @@ set -e
 # turn on verbose option, which echos commands to stdout
 set -v
 
-cd artifact
+cd ../artifact
 ./build.sh --clean
 
 # this currently 'works' but reports errors and thus fails
