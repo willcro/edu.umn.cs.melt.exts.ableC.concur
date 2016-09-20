@@ -13,4 +13,5 @@ else
     echo ""
     echo "Tests failed!"
     echo ""
+    exit 1
 fi
