@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # turn on verbose option, which echos commands to stdout
-set -v
+# also exit on non-zero return code
+set -v -e
 
 silver -I ../../.. -I ../../../../ableC -o MDA.jar --clean $@ \
        edu:umn:cs:melt:exts:ableC:skeleton:modular_analyses:determinism
