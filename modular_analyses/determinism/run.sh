@@ -13,3 +13,4 @@ silver -I ../../.. -I ../../../../ableC -o MDA.jar --clean $@ \
 # should be a line reading "Modular determinism analysis passed." that
 # indicates that the analysis was successful.
 
+rm -f build.xml

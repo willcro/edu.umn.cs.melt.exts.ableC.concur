@@ -32,15 +32,18 @@ pwd
 ./run.sh --clean
 cd ../../
 
-# this currently 'works' but reports errors and thus fails
-cd examples
+# positive tests
+cd test/positive
 pwd
-./compile.sh skeleton.xc
+./the_tests.sh
+cd ../../
 
-./a.out
+# negative tests
+cd test/negative
+pwd
+./the_tests.sh
+cd ../../
 
-cd ../
 pwd
 
 set +v
-

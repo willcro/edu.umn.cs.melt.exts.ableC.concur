@@ -8,7 +8,7 @@ grammar edu:umn:cs:melt:exts:ableC:skeleton:artifact;
  -}
 
 import edu:umn:cs:melt:ableC:concretesyntax as cst;
-import edu:umn:cs:melt:ableC:drivers:parseAndPrint;
+import edu:umn:cs:melt:ableC:drivers:compile;
 
 
 parser extendedParser :: cst:Root {
