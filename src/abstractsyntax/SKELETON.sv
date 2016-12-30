@@ -71,7 +71,8 @@ Stmt ::= loc::Location skeletonLine::String
     exprStmt(
       directCallExpr( 
         name("printf", location=loc),
-        consExpr( stringLiteral(strForPrintf, location=loc), nilExpr() ),
+        consExpr( stringLiteral(strForPrintf, location=loc),
+	          nilExpr() ),
         location=loc
       )
     ) ;

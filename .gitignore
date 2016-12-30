@@ -4,5 +4,6 @@
 build.xml
 *.jar
 
-*.pp_out.c
-*.gen_cpp
+*.c
+*.i
+a.out

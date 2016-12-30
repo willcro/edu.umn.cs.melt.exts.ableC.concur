@@ -39,10 +39,11 @@ pwd
 cd ../../
 
 # negative tests
-cd test/negative
-pwd
-./the_tests.sh
-cd ../../
+# there are not negative tests for skeleton, so we skip the following steps.
+#  cd test/negative
+#  pwd
+#  ./the_tests.sh
+#  cd ../../
 
 pwd
 
