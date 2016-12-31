@@ -89,7 +89,9 @@ stage ("Test") {
   node {
     def top_dir = "ableC_Home/extensions/edu.umn.cs.melt.exts.ableC.skeleton"
     sh "cd ${top_dir}/test/positive && ./the_tests.sh"
-    /* sh "cd ${top_dir}/test/negative && ./the_tests.sh" - no negative tests in skeleton */
+    /* sh "cd ${top_dir}/test/negative && ./the_tests.sh" - no
+       negative tests in skeleton.  But you will likely have these
+       in your extension.  */
   }
 }
 
