@@ -1,7 +1,11 @@
-## A very simple 'skeleton' extension
+## An extension implementing Go style concurrency into ableC
 
-This sample extension exemplifies an organization that some might
-find useful in writing language extensions for ableC.
+This is based on the skeleton extension found at
+https://github.com/melt-umn/edu.umn.cs.melt.exts.ableC.skeleton
+
+This extension will allow for simple concurrency using a style similar to
+go-routines in Googles Go language.  Data can be passed to and from these
+concurrent routines by using channels.
 
 An `artifact` and `examples` directories demonstrate how to create
 an ableC compiler using the extension and some sample programs using
