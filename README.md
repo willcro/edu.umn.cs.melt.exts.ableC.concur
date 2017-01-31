@@ -1,23 +1,69 @@
-## An extension implementing Go style concurrency into ableC
+## Go Concurrency for C
+This extension will allow for concurrency similar to that found in the language go
+into ableC for use in C programs.  Concurrent goroutines can be called from functions.
+It will also allow for the creation of the channel data type in order to pass data
+to and from this concurrent processes.
 
-This is based on the skeleton extension found at
-https://github.com/melt-umn/edu.umn.cs.melt.exts.ableC.skeleton
+### Creating Channels
+Data is passed back and forth between concurrent functions using channels, exactly as
+it is in go.  Channels are defined using the new keyword `chan` as
+```
+chan int ch = open chan;
+```
+for an integer channel.  Multiple channels are defined similarly as
+```
+chan int ch1 = open chan;
+chan int ch2 = open chan;
+chan int ch3 = open chan;
+```
+Channels can be passed into functions like any other data type.
+```
+int printTwice (chan int ch2) {}
+```
+The operator `<-` is used to pass data into a channel or to read from one.
+```
+int foo;
+ch1 <- 4;
+foo <- ch2;
+```
+### Spawing Concurrent Functions
+We call functions to run concurrently using the keyword `spawn`.  These concurrent calls
+work similarly to the goroutines in go and `spawn` is analogous to go's `go` keyword.
+`spawn` works for calling defined functions:
+```
+int main (int argc, char **argv) {
+  chan int ch = open chan;
+  spawn example(ch);
+  <-ch;
+  return 0; 
+}
 
-This extension will allow for simple concurrency using a style similar to
-go-routines in Googles Go language.  Data can be passed to and from these
-concurrent routines by using channels.
+int example (chan int ch2) {
+  ch2 <- 1;
+  return 0;
+}
+```
+It can also be used on closures:
+```
+int main (int argc, char **argv) {
+  chan int ch = open chan;
+  spawn func(chan int ch2) {
+    ch2 <- 1;
+  }(ch);
 
-An `artifact` and `examples` directories demonstrate how to create
-an ableC compiler using the extension and some sample programs using
-that extension.
+  <-ch;
+  return 0; 
+}
+```
+In both of these cases `<-ch' is used so `main()` waits for the concurrent
+function to push some data to the channel before returning.  Without this,
+`main` would return and end execution before the concurrent functions are
+able to do anything.
 
-The `modular_analyses` directory contains a directory for each of the
-two modular analyses: modular determinism and modular
-well-definedness.  A `run.sh` script is in each to make it easy for an
-extension user to verify that the extension does in fact pass the
-modular analyses.
+For more examples see the `examples` directory.
 
-A `src` directory contains the sourse of the langauge extension.
+## Status
+Just a skeleton right now.  Positive and negative examples show usage, but
+nothing is functioning.
 
-Extension designers are of course free to organize files as they
-choose.  This is simply an example that works well for us.
+
