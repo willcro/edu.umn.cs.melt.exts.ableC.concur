@@ -55,7 +55,7 @@ int main (int argc, char **argv) {
   return 0; 
 }
 ```
-In both of these cases `<-ch' is used so `main()` waits for the concurrent
+In both of these cases `<-ch` is used so `main()` waits for the concurrent
 function to push some data to the channel before returning.  Without this,
 `main` would return and end execution before the concurrent functions are
 able to do anything.
